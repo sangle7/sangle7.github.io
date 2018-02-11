@@ -193,4 +193,4 @@ React在virtual DOM的基础上实现了一个SyntheticEvent（合成事件）�
 
 ### react-router 原理
 
-createBrowserHistory: 利用HTML5里面的history执行URL前进 => createBrowserHistory: pushState、replaceState检测URL回退 => createBrowserHistory: popstate为了维护state的状态，将其存储在sessionStorage里面:![img](https://onvaoy58z.bkt.clouddn.com/7cdsxs0sxza.png)
+createBrowserHistory: 利用HTML5里面的history执行URL前进 => createBrowserHistory: pushState、replaceState检测URL回退 => createBrowserHistory: popstate为了维护state的状态，将其存储在sessionStorage里面:![img](http://onvaoy58z.bkt.clouddn.com/7cdsxs0sxza.png)

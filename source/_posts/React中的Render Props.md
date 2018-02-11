@@ -155,7 +155,7 @@ ReactDOM.render(<App/>, document.getElementById('root'))
 
 [MICHAEL JACKSON‏](https://zhuanlan.zhihu.com/p/31267131/%3C/b%3E//twitter.com/mjackson) 在twitter上发起挑战，称所有HOC都能改写为Render props，如果你发现有例外，欢迎[提出质疑](https://link.zhihu.com/?target=https%3A//twitter.com/mjackson/status/885910701520207872) 😉
 
-![](https://onvaoy58z.bkt.clouddn.com/v2-c16db5d725247c79746c3fb1b70b4054_hd.jpg)
+![](http://onvaoy58z.bkt.clouddn.com/v2-c16db5d725247c79746c3fb1b70b4054_hd.jpg)
 
 
 ## 选择

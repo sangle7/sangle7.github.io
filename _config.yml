@@ -79,11 +79,6 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
 - type: git
-  repo: https://github.com/sangle7/sangle7.github.io.git
-  branch: master
-  name: sangle7
-  email: sanglewang@gmail.com
-- type: git
   repo: root@45.76.223.155:/srv/www/blog-hexo.git
 - type: baidu_url_submitter
 

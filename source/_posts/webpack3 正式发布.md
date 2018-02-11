@@ -42,7 +42,7 @@ yarn add webpack@3.0.0 --dev
 
 作用域提升是webpack 3的旗舰功能。在打包时，Webpack将您的 bundle 中的每个模块都将被包装在单独的函数闭包(function closure) 中。这些闭包会使您的JavaScript在浏览器中执行速度更慢。相比之下，像 Closure Compiler 和 RollupJS ‘hoist’ 这样的工具可以将所有模块包装在一个大的闭包内，从而使您的代码在浏览器中具有更快的执行速度。
 
-![1497929168082](https://onvaoy58z.bkt.clouddn.com/1497929168082.png)
+![1497929168082](http://onvaoy58z.bkt.clouddn.com/1497929168082.png)
 
 而现在，使用webpack 3，您现在可以**在配置中添加下面的插件以启用作用域提升**：
 
@@ -58,7 +58,7 @@ module.exports = {
 
 为了了解什么触发了这些回退，我们添加了一个`--display-optimization-bailout` cli标志，它将告诉你是什么导致的回退。
 
-![1497929229855](https://onvaoy58z.bkt.clouddn.com/1497929229855.png)
+![1497929229855](http://onvaoy58z.bkt.clouddn.com/1497929229855.png)
 
 同时，由于作用域提升会移除模块外的函数包装，你可能会看到一些小的体积改进。然而，更显着的改进是JavaScript在浏览器中加载的速度。 如果您在比较使用之前和之后时发现加载速度取得了非常棒的改进，请随时回复一些数据，我们将很荣幸分享！
 
@@ -76,7 +76,7 @@ import(/* webpackChunkName: "my-chunk-name" */  'module');
 
 尽管这是我们在 v2.4 和 v2.6 中发布的技术特性，但在 v3 中，我们修复了这些功能的一些错误，使其变得更稳定。 现在允许动态导入语法具有与`require.ensure`相同的灵活性。
 
-![1497929293139](https://onvaoy58z.bkt.clouddn.com/1497929293139.png)
+![1497929293139](http://onvaoy58z.bkt.clouddn.com/1497929293139.png)
 
 要了解更多信息，请参阅我们[最新文档的代码分割部分](https://webpack.js.org/guides/code-splitting-async)，新功能部分已经高亮！
 

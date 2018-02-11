@@ -12,7 +12,7 @@ tags:
 
 webpack核心团队不时喜欢参与社区在Twitter中的讨论，并以[有趣和翔实的方式分享一些知识](https://twitter.com/TheLarkInn/status/842817690951733248)。
 
-![](https://onvaoy58z.bkt.clouddn.com/ccpt1.JPG)
+![](http://onvaoy58z.bkt.clouddn.com/ccpt1.JPG)
 
 
 
@@ -28,11 +28,11 @@ webpack核心团队不时喜欢参与社区在Twitter中的讨论，并以[有�
 
 ### 许多具有重复代码的vendor bundles
 
-![](https://onvaoy58z.bkt.clouddn.com/ccpt2.JPG)
+![](http://onvaoy58z.bkt.clouddn.com/ccpt2.JPG)
 
 [Swizec Teller](https://medium.com/@swizec) 分享了他的一个项目，这个项目是由8-9个单页面应用程序组成的。我选择了这个项目作为例子，是因为我们可通过它了解许多技术的运用。所以让我们来看的更仔细一些：
 
-![](https://onvaoy58z.bkt.clouddn.com/ccp0.png)
+![](http://onvaoy58z.bkt.clouddn.com/ccp0.png)
 
 
 
@@ -40,7 +40,7 @@ webpack核心团队不时喜欢参与社区在Twitter中的讨论，并以[有�
 
 每一个单页应用程序使用了一个新的CommonsChunkPlugin ，它只针对入口文件以及*vendor*代码。这将创建一个只包含来自node_modules文件夹的模块的*bundle*，另外一个*bundle*只包含应用程序代码。 配置部分：
 
-![](https://onvaoy58z.bkt.clouddn.com/ccpt3.JPG)
+![](http://onvaoy58z.bkt.clouddn.com/ccpt3.JPG)
 
 ```javascript
 Object.keys(activeApps)
@@ -57,7 +57,7 @@ Object.keys(activeApps)
 
 以下是我圈出的一些可以改进的区域。
 
-![](https://onvaoy58z.bkt.clouddn.com/ccp1.png)
+![](http://onvaoy58z.bkt.clouddn.com/ccp1.png)
 
 ### “Meta”缓存
 
@@ -76,9 +76,9 @@ new webpack.optimize.CommonsChunkPlugin({
 
 > 嗨 webpack，查看所有的 *chunks*（包括生成的 vendor），并将任何包含在至少6个chunks 的模块移动到一个单独的文件中。
 
-![](https://onvaoy58z.bkt.clouddn.com/ccpt4.JPG)
+![](http://onvaoy58z.bkt.clouddn.com/ccpt4.JPG)
 
-![](https://onvaoy58z.bkt.clouddn.com/ccpt5.JPG)
+![](http://onvaoy58z.bkt.clouddn.com/ccpt5.JPG)
 
 正如你看到的，所有这些模块都被提取到一个单独的文件中，除此之外，[Swizec](https://medium.com/@swizec)报告说，这使整个应用程序的大小减少了17％！
 
@@ -86,11 +86,11 @@ new webpack.optimize.CommonsChunkPlugin({
 
 ### Case Two: Duplicate vendors across async chunks:
 
-![](https://onvaoy58z.bkt.clouddn.com/ccpt6.JPG)
+![](http://onvaoy58z.bkt.clouddn.com/ccpt6.JPG)
 
 在这个例子中，模块数量的重复对于整体代码大小的影响并没有那么严重，然而，当你观察下面的大图时，可以看到每个异步块中都存在完全相同的3个模块。
 
-![](https://onvaoy58z.bkt.clouddn.com/ccp2.jpeg)
+![](http://onvaoy58z.bkt.clouddn.com/ccp2.jpeg)
 
 
 
@@ -114,7 +114,7 @@ new webpack.optimize.CommonsChunkPlugin({
 
 优化后的结果如下：
 
-![](https://onvaoy58z.bkt.clouddn.com/ccpt8.JPG)
+![](http://onvaoy58z.bkt.clouddn.com/ccpt8.JPG)
 
 现在异步*chunks*的体积变得非常小，所有代码已经被打包成一个名为commonlazy.js的文件。 由于这些*bundle* 已经很小，直到第二次访问之后，尺寸的影响才不是很明显。 现在，每个代码分割*bundle*的数据量远远少于数据量，我们通过将这些通用模块放入单独的可高速缓存的*chunk*中来节省用户加载时间和数据的消耗。
 

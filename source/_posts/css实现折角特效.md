@@ -18,7 +18,7 @@ tags:
 
 ### 效果
 
-![](https://onvaoy58z.bkt.clouddn.com/pageflip1.JPG)
+![](http://onvaoy58z.bkt.clouddn.com/pageflip1.JPG)
 
 
 <!-- more -->
@@ -77,7 +77,7 @@ tags:
 
 ### 效果
 
-![](https://onvaoy58z.bkt.clouddn.com/pageflip2.JPG)
+![](http://onvaoy58z.bkt.clouddn.com/pageflip2.JPG)
 
 
 
@@ -112,7 +112,7 @@ div::before {
 
 ### 45度的角
 
-![](https://onvaoy58z.bkt.clouddn.com/pageflip3.JPG)
+![](http://onvaoy58z.bkt.clouddn.com/pageflip3.JPG)
 
 
 

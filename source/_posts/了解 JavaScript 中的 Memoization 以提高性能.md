@@ -22,7 +22,7 @@ tags:
 
 它可以表示如下：
 
-```js
+```javascript
 function longOp(arg) {
     if( cache has operation result for arg) {
         return the cache
@@ -51,7 +51,7 @@ longOp('lp') // same operation
 
 使用真实示例，假设我们有一个函数可以找到数字的平方根：
 
-```js
+```javascript
 function sqrt(arg) {
     return Math.sqrt(arg);
 }
@@ -61,7 +61,7 @@ log(sqrt(9)) // 3
 
 我们可以记住这个 sqrt 函数：
 
-```js
+```javascript
 function sqrt(arg) {
     if (!sqrt.cache) {
         sqrt.cache = {}
@@ -79,7 +79,7 @@ function sqrt(arg) {
 
 我们可以多次调用该函数：
 
-```js
+```javascript
 sqrt(9)
 sqrt(9)
 sqrt(4)
@@ -93,14 +93,14 @@ sqrt(4)
 
 我们可以添加日志来查看存储在缓存中的对象：
 
-```js
+```javascript
 //...
 log(sqrt.cache) // { "9": 3, "4": 2 }
 ```
 
 另一个例子，假设我们有一个平方函数来计算传递给它的数字的平方。
 
-```js
+```javascript
 function square(num) {
     return num * num;
 }
@@ -110,7 +110,7 @@ log(square(4)) // 16
 
 我们可以这样记住这个函数：
 
-```js
+```javascript
 function square(num) {
     if(!square.cache) {
         square.cache = {}
@@ -124,7 +124,7 @@ function square(num) {
 
 与sqrt函数相同，它检查输入是否已经有结果。 如果是，则返回缓存中的结果。 如果不是，则执行计算，返回结果并将结果存储在缓存中。
 
-```js
+```javascript
 log(square.cache) // undefined, no cache initially
 log(square(2)) // 4
 log(square.cache) // { "2": 4 }, the result of input 2 now in cache
@@ -143,7 +143,7 @@ log(square(4)) // 16, you can guess it retrievs theresult from the cache
 
 现在，我们可以创建一个独立的函数来记忆任何函数。 我们将此函数称为 memoize。
 
-```js
+```javascript
 function memoize(fn) {
     return function () {
         var args =
@@ -158,14 +158,14 @@ Array.prototype.slice.call(arguments)
 
 要使用此函数，我们调用memoize将要记忆的函数作为参数传递。
 
-```js
+```javascript
 memoizedFunction = memoize(funtionToMemoize)
 memoizedFunction(args)
 ```
 
 例如，让我们执行我们的第一个例子
 
-```js
+```javascript
 function sqrt(arg) {
     return Math.sqrt(arg);
 }
@@ -176,7 +176,7 @@ const memoizedSqrt = memoize(sqrt)
 
 Let’s try it:
 
-```js
+```javascript
 //...
 memoizedSqrt(4) // 2 calculated
 memoizedSqrt(4) // 2 cached
@@ -188,7 +188,7 @@ memoizedSqrt(25) // 5 cached
 
 我们可以将 memoize 函数添加到 Function 原型中，以便我们的应用程序中定义的每个函数都继承 memoize 函数并可以调用它。
 
-```js
+```javascript
 Function.prototype.memoize = function() {
     var self = this
     return function () {
@@ -204,7 +204,7 @@ Array.prototype.slice.call(arguments)
 
 让我们看看它的实际效果：
 
-```js
+```javascript
 function sqrt(arg) {
     return Math.sqrt(arg);
 }
@@ -230,7 +230,7 @@ Memoization 的目标是提高速度。 Memoization 消耗内存空间以提高�
 
 我们对 sqrt 函数进行了测试：
 
-```js
+```javascript
 function sqrt(arg) {
     return Math.sqrt(arg);
 }
@@ -367,7 +367,7 @@ $
 
 我们来看看这个例子：
 
-```js
+```javascript
 function unpredicatble(input) {
     return input * Date.now()
 }
@@ -392,7 +392,7 @@ $ node memoize
 
 斐波那契系列的特点是前两个之后的每个数字都是前两个数字的总和。
 
- ```js
+ ```javascript
 F2 = F1 + F1 => (2 = 1+1)
 F5 = F3 + F2 => (5 = 3+2)
 Therefore,

@@ -93,7 +93,7 @@ HTML 文档中的所有元素和样式以及 DOM 都位于一个全局范围内�
 
 我们使用`attachShadow()`方法将shadow DOM 附加到我们的 shadow host 上
 
-```js
+```javascript
 const shadowEl = document.querySelector(".shadow-host");
 const shadow = shadowEl.attachShadow({mode: 'open'});
 ```
@@ -108,7 +108,7 @@ This will create an empty **shadow root** as a child of our shadow host. The s
 
 接下来，我们要创建内容以形成新的 **shadow tree**。shadow tree 就像一个DOM树，区别在于它是针对阴影 DOM 的而不是常规 DOM 。 要创建我们的关注按钮，我们所需要的只是一个新的`<a>`元素，同时带有一个图标。
 
-```js
+```javascript
 const link = document.createElement("a");
 link.href = shadowEl.querySelector("a").href;
 link.innerHTML = `
@@ -119,7 +119,7 @@ link.innerHTML = `
 
 我们将这个新元素添加到我们的 shadow DOM 中，就和使用`appendChild()`方法添加子元素一样。
 
-```js
+```javascript
 shadow.appendChild(link);
 ```
 

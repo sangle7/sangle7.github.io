@@ -44,7 +44,7 @@ header.payload.signature
 
 JWT 的 Header 部分包含有关如何计算 JWT 签名的信息，是一个以下形式的 JSON 对象：
 
-```JSON
+```javascriptON
 {
     "typ": "JWT",
     "alg": "HS256"
@@ -57,7 +57,7 @@ JWT 的 Header 部分包含有关如何计算 JWT 签名的信息，是一个以
 
 JWT 的 payload 部分时是存储在 JWT 内的数据。在我们的示例中，身份验证服务器创建一个JWT，其中存储有用户信息，特别是用户ID。
 
-```json
+```javascripton
 {
     "userId": "b08f86af-35da-48f2-8fab-cef3904660bd"
 }

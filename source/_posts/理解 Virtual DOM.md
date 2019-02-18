@@ -38,7 +38,7 @@ tags:
 
 假设我们想要将第一个列表项的内容修改为 “List item one”，并添加第二个列表项。 我们需要使用 DOM API 来查找我们想要更新的元素，创建新元素，添加属性和内容，然后最终更新 DOM 元素本身。
 
-```js
+```javascript
 const listItemOne = document.getElementsByClassName("list__item")[0];
 listItemOne.textContent = "List item one";
 
@@ -57,7 +57,7 @@ list.appendChild(listItemTwo);
 
 更进一步，由于 API 的设置方式，在更新文档时，比起查找和更新特定元素所带来的昂贵的性能消耗，一次更新较大的范围通常会更简单。 回到我们的列表例子，我们使用新的元素整个替换会更合适。
 
-```js
+```javascript
 const list = document.getElementsByClassName("list")[0];
 list.innerHTML = `
 <li class="list__item">List item one</li>
@@ -85,7 +85,7 @@ Virtual DOM 可以被认为是 DOM 的副本。 我们可以经常操作和更�
 
 这棵树也可以使用 JavaScript 对象来表示：
 
-```js
+```javascript
 const vdom = {
     tagName: "html",
     children: [
@@ -114,7 +114,7 @@ const vdom = {
 
 更多的时候，我们不会将 Virutal DOM 应用于整个对象，而会在对象中使用 Virutal DOM 的小部分。 例如，我们可能会处理 `list` 组件，它会对应于我们的无序列表元素。
 
- ```js
+ ```javascript
 const list = {
     tagName: "ul",
     attributes: { "class": "list" },
@@ -136,7 +136,7 @@ const list = {
 
 我们要做的第一件事是制作 Virtual DOM 的副本，其中包含我们想要进行的更改。 由于我们不需要使用 DOM API，因此我们实际上只需创建一个新对象。
 
-```js
+```javascript
 const copy = {
     tagName: "ul",
     attributes: { "class": "list" },
@@ -157,7 +157,7 @@ const copy = {
 
 此副本用于在初始的 Virtual DOM（在本例中为列表）和更新的 Virtual DOM 之间创建所谓的“差异”（diffs）。 差异可能看起来像这样：
 
-```
+```javascript
 const diffs = [
     {
         newNode: { /* new version of list item one */ },
@@ -175,7 +175,7 @@ const diffs = [
 
 例如，我们可以循环遍历每个差异，并根据diff指定的内容添加新的子节点或更新旧的子节点。
 
-```
+```javascript
 const domElement = document.getElementsByClassName("list")[0];
 
 diffs.forEach((diff) => {
@@ -203,7 +203,7 @@ Note that this is a really simplified and stripped-back version of how a virtual
 
 类似于 React 和 Vue 的框架使用了 Virtual DOM 来让减少 DOM 的更新优化性能。举个例子，`list` 组件在React 中可以写成以下的形式：
 
-```react
+```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -216,7 +216,7 @@ ReactDOM.render(list, document.body);
 
 如果我们想要更新列表，我们重新编写整个 list ，调用`ReactDOM.render()`并传入新列表
 
-```react
+```jsx
 const newList = React.createElement("ul", { className: "list" },
     React.createElement("li", { className: "list__item" }, "List item one"),
     React.createElement("li", { className: "list__item" }, "List item two");

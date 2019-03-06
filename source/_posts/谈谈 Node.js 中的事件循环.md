@@ -17,12 +17,14 @@ Node.js 中的事件循环由 `libuv` 实现，其每一轮循环按照顺序氛
 5. check: 执行 `setImmediate()` 回调函数
 6. close callbacks: 处理一些准备关闭的回调函数
 
+<!-- more -->
+
 ## 执行机制 
 ### 任务队列
 不同于浏览器中的 microtask 和 macrotask，node 中具有的两个队列分别是 microtask queue 和 nexttick queue
 在循环阶段中的几个队列分别是 Timers Queue、I/O Queue、Check Queue、Close Queue
 
-###循环之前
+### 循环之前
 在进入第一次循环之前，会先进行如下操作：
 
 - 同步任务
@@ -86,7 +88,7 @@ setTimeout(() => {
 })
 ```
 浏览器输出:
-```
+```bash
 setTimeout - 1 //1为单个task
 1s over
 setTimeout - 1 - then
@@ -101,7 +103,7 @@ setTimeout - 2 - 1
 1s over
 ```
 node 输出:
-```
+```bash
 setTimeout - 1 
 1s over
 setTimeout - 2 //1、2为单阶段task

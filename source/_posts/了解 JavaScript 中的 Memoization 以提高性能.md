@@ -386,7 +386,7 @@ $ node memoize
 
 斐波那契是许多复杂算法中的一种，可以使用 memoization 进行优化。
 
-```
+```javascript
 1,1,2,3,5,8,13,21,34,55,89
 ```
 
@@ -401,7 +401,7 @@ Fn = Fn-1 + Fn-2
 
 在 JS 中，我们可以这样表示：
 
-```
+```javascript
 function fibonacci(num) {
     if (num == 1 || num == 2) {
         return 1
@@ -412,30 +412,30 @@ function fibonacci(num) {
 
 如果 num 超过2，则此函数是递归的。
 
-```
+```javascript
 log(fibonacci(4)) // 3
 ```
 
 让我们对 memoized 后的斐波那契算法进行测试。
 
-```
+```javascript
 const memFib = memoize(fibonacci)
 ```
 
-```
+```javascript
 log('profiling tests for fibonacci')
 console.time("non-memoized call")
 log(memFib(6))
 console.timeEnd("non-memoized call")
 ```
 
-```
+```javascript
 console.time("memoized call")
 log(memFib(6))
 console.timeEnd("memoized call")
 ```
 
-```
+```bash
 $ node memoize
 profiling tests for fibonacci
 8
@@ -448,7 +448,7 @@ memoized call: 1.270ms
 
 更多的测试如下：
 
-```
+```bash
 $ node memoize
 profiling tests for fibonacci
 8

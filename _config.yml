@@ -104,3 +104,40 @@ prism_plugin:
   mode: 'preprocess'    # realtime/preprocess
   theme: 'default'
   line_number: true    # default false
+
+
+pwa:
+  manifest:
+    path: /manifest.json
+    body:
+      name: Sangle's Blog
+      short_name: Sangle7
+      theme_color: white
+      background_color: white
+      display: standalone
+      orientation: portrait
+      scope: /
+      start_url: /
+      icons:
+        - src: /images/sangle.png
+          type: image/png
+          sizes: 1000x1000
+        - src: /favicon.png
+          type: image/png
+          sizes: 200x200
+  serviceWorker:
+    path: /sw.js
+    preload:
+      urls:
+        - /
+      posts: 5
+    opts:
+      networkTimeoutSeconds: 20
+    routes:
+      - pattern: !!js/regexp /hm.baidu.com/
+        strategy: networkOnly
+      - pattern: !!js/regexp /.*\.(js|css|jpg|jpeg|png|gif)$/
+        strategy: cacheFirst
+      - pattern: !!js/regexp /\//
+        strategy: networkFirst
+  priority: 5
